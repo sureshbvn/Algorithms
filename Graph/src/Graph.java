@@ -63,6 +63,10 @@ public class Graph<Item> {
 		}
 
 	}
+	public Vertex<Item> getVertex(Item vertexId){
+		return this.vertexDictionary().get(vertexId);
+		
+	}
 	public HashMap<Item, Vertex<Item>> vertexDictionary(){
 		return listarray;
 	} 
