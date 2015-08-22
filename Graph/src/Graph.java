@@ -48,8 +48,14 @@ public class Graph<Item> {
 			addVertex(vertex1_id);
 		if (!listarray.containsKey(vertex2_id))
 			addVertex(vertex2_id);
-		listarray.get(vertex1_id).addNeighbour(vertex2_id);
-		listarray.get(vertex2_id).addNeighbour(vertex1_id);
+		Vertex<Item> vertex1=listarray.get(vertex1_id);
+		Vertex<Item> vertex2=listarray.get(vertex2_id);
+		vertex1.addNeighbour(vertex2_id);
+		//vertex2.addNeighbour(vertex1_id);//uncomment this line for undirected graph
+		vertex1.setOutDegre(vertex1.getOutDegree()+1);
+		vertex2.setIndegree(vertex2.getIndegree()+1);
+		System.out.println("The indegree of vertex"+vertex2+"is"+vertex2.getIndegree());
+		
 
 	}
 

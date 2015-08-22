@@ -35,6 +35,12 @@ public class Vertex<Item> {
 		public int getOutDegree() {
 			return this.outDegree;
 		}
+		public void setIndegree(int indegree){
+			this.inDegree=indegree;
+		}
+		public void setOutDegre(int outDegree){
+			this.outDegree=outDegree;
+		}
 
 		/**
 		 * make the specific vertex visited.
@@ -93,11 +99,12 @@ public class Vertex<Item> {
 			return adjList;
 		}
 		public String toString() {
-			StringBuilder stringOutput = new StringBuilder();
-			stringOutput.append((String) vertexId);
+			
+			return (String)vertexId;
 
-			return stringOutput.toString();
-
+		}
+		public Item getVertexId(){
+			return this.vertexId;
 		}
 
 		/**
