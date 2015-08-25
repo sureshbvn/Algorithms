@@ -24,6 +24,34 @@ public class BinarySearchTree<Item> {
 		}
 
 	}
+	/**
+	 * @param root, root node of the binary search tree
+	 * @param node, node to be inserted with binary tree
+	 * The following assumptions are made. Even the binary tree and binary search tress are implemented to hold generic objects,
+	 * the insertNode function is customized only to integer objects for the learning purpose.
+	 */
+	private void insertNode(BinaryTreeNode<Integer> root,BinaryTreeNode<Integer> node){
+		if(root==null)
+			root=node;
+		else{
+			if(root.getData()>node.getData())
+		
+				if(root.getLeftNode()==null){
+					root.setLeftNode(node);
+				}
+				else{
+					insertNode(root.getLeftNode(), node);
+				}
+			else{
+				if(root.getRightNode()==null)
+					root.setRightNode(node);
+				else
+					insertNode(root.getRightNode(), node);
+				
+			}
+			
+		}
+	}
 
 	
 	public static void main(String args[]) {
@@ -37,6 +65,8 @@ public class BinarySearchTree<Item> {
 
 		BinaryTreeNode<Integer> node5 = new BinaryTreeNode<Integer>(13);
 		BinaryTreeNode<Integer> node6 = new BinaryTreeNode<Integer>(17);
+		
+		BinaryTreeNode<Integer> node7 = new BinaryTreeNode<Integer>(14);
 
 		node.setLeftNode(node1);
 		node.setRightNode(node2);
@@ -59,6 +89,8 @@ public class BinarySearchTree<Item> {
 		node6.setLeftNode(null);
 		node6.setRightNode(null);
 		BinarySearchTree<Integer> bst = new BinarySearchTree<Integer>();
+		//bst.printBinarySearchTree(node);
+		bst.insertNode(node, node7);
 		bst.printBinarySearchTree(node);
 
 	}
